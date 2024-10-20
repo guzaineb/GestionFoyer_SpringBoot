@@ -19,11 +19,11 @@ public class Bloc {
 
     private Long idBloc;
     private String nomBloc;
-    private Long capaciteBloc;
-    @ManyToOne
-    private Foyer foyer ;
-    @OneToMany ( mappedBy = "bloc")
-    private Set<Chambre>Chambres;
+    private Long capaciteBloc ;
+    //@ManyToOne
+    //private Foyer foyer ;
+    //@OneToMany ( mappedBy = "bloc")
+    //private Set<Chambre>Chambres;
 
 
 }

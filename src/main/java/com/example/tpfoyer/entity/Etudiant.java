@@ -24,8 +24,8 @@ public class Etudiant {
     private long cin;
     private String ecole;
     private Date dateNaissance;
-    @ManyToMany(mappedBy = "etudiants")
-    private Set<Reservation>reservations;
+    //@ManyToMany(mappedBy = "etudiants")
+    //private Set<Reservation>reservations;
 
 
 }

@@ -21,12 +21,13 @@ public class Reservation {
 // onetoMany unidirictionnelle il faut maitre une table assossiative (3tables)
     // ManyToONE unidirictionnelle 2 tables
 @Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
     private  String idReservation;
     private Date anneeUniversitaire;
     private boolean estValide;
 
-    @ManyToMany
-    private Set<Etudiant>etudiants;
+    //@ManyToMany
+    //private Set<Etudiant>etudiants;
 
 
 

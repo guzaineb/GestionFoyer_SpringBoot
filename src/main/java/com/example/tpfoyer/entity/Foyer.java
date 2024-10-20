@@ -24,10 +24,10 @@ public class Foyer {
     private Long idFoyer;
     private long capaciteFoyer;
     private String nomFoyer;
-    @OneToOne (mappedBy = "foyer")
-    private Universite universite;
-    @OneToMany(mappedBy = "foyer")
-    private Set<Bloc> blocS;
+    //@OneToOne (mappedBy = "foyer")
+    //private Universite universite;
+    //@OneToMany(mappedBy = "foyer")
+    //private Set<Bloc> blocS;
 
 
 

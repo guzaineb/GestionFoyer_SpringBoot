@@ -2,6 +2,8 @@ package com.example.tpfoyer.control;
 
 import com.example.tpfoyer.entity.Chambre;
 import com.example.tpfoyer.service.IChambreService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,9 +11,15 @@ import java.util.List;
 
 @RestController
 @AllArgsConstructor
+
+
+@Tag(name = "Gestion Chambre")
+
 @RequestMapping("/chambre")
 public class ChambreRestController {
     IChambreService chambreService;
+    @Operation(description = "récupérer toutes les chambres de la base de données")
+
     // http://localhost:8089/tpfoyer/chambre/retrieve-all-chambres
     @GetMapping("/retrieve-all-chambres")
     public List<Chambre> getChambres() {
