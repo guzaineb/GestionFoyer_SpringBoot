@@ -1,10 +1,7 @@
 package com.example.tpfoyer.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.Set;
 
@@ -13,6 +10,7 @@ import java.util.Set;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 public class Bloc {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //identity : auto-incrimente

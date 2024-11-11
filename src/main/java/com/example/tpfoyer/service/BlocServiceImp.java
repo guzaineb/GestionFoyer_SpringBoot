@@ -3,15 +3,24 @@ package com.example.tpfoyer.service;
 import com.example.tpfoyer.entity.Bloc;
 import com.example.tpfoyer.repository.BlocRepository;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
 @AllArgsConstructor
+@Slf4j
 public class BlocServiceImp implements IBlocService{
     BlocRepository blocRepository;
+    @Scheduled(fixedRate = 60000)
     public List<Bloc> retrieveAllBloc() {
-        return blocRepository.findAll();
+        List<Bloc> lb = blocRepository.findAll();
+        log.info("nbr blocs: " + lb.size());
+        for(Bloc b: lb){
+            log.info("bloc : " + b);
+        }
+        return lb;
     }
 
 

@@ -17,7 +17,7 @@ public class ReservationRestController {
     public List<Reservation> retrieveAllReservations(){
         List<Reservation> reservations = reservationService.retrieveAllReservations();
         return reservations;
-    }
+    }//http://localhost:8089/tpfoyer/Reservation/retrieve-chambre/ref1
     @GetMapping("/retrieve-chambre/{reservation-Id}")
     public Reservation retrieveReservation(@PathVariable("reservation-Id") String reservationId){
     Reservation reservation = reservationService.retrieveReservation(reservationId);
@@ -28,14 +28,14 @@ public class ReservationRestController {
     public Reservation addReservation(@RequestBody Reservation r){
        Reservation reservation = reservationService.addReservation(r);
        return reservation;
-    }
-    @DeleteMapping("/delet-reservation/{res-Id}")
-    public void removeReservation(@PathVariable("res-Id") String resId) {
+    }//http://localhost:8089/tpfoyer/Reservation/delet-reservation/ref
+    @DeleteMapping("/delet-reservation/{reservation-Id}")
+    public void removeReservation(@PathVariable("reservation-Id") String resId) {
      reservationService.removeReservation(resId);
 
     }
     @PutMapping("/modify-Reservation")
-    public Reservation modifyReservation(Reservation reservation){
+    public Reservation modifyReservation( @RequestBody  Reservation reservation){
     Reservation reservation1 = reservationService.modifyReservation(reservation);
     return reservation1;
     }
