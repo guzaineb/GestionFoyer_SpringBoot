@@ -13,7 +13,7 @@ import java.util.List;
 @Slf4j
 public class BlocServiceImp implements IBlocService{
     BlocRepository blocRepository;
-    @Scheduled(fixedRate = 60000)
+    @Scheduled(fixedRate = 600000)
     public List<Bloc> retrieveAllBloc() {
         List<Bloc> lb = blocRepository.findAll();
         log.info("nbr blocs: " + lb.size());
@@ -42,4 +42,6 @@ public class BlocServiceImp implements IBlocService{
     public Bloc modifyBloc(Bloc bloc) {
         return blocRepository.save(bloc);
     }
+
+
 }
