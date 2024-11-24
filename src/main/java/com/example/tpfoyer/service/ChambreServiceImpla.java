@@ -1,7 +1,9 @@
 package com.example.tpfoyer.service;
 
 import com.example.tpfoyer.entity.Chambre;
+import com.example.tpfoyer.entity.Reservation;
 import com.example.tpfoyer.repository.ChambreRepository;
+import com.example.tpfoyer.repository.ReservationRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 public class ChambreServiceImpla implements IChambreService {
     ChambreRepository chambreRepository;
+    ReservationRepository reservationRepository;
     public List<Chambre> retrieveAllChambres() {
         return chambreRepository.findAll();
     }
@@ -26,5 +29,30 @@ public class ChambreServiceImpla implements IChambreService {
     public Chambre modifyChambre(Chambre chambre) {
         return chambreRepository.save(chambre);
     }
+
+    @Override
+    public Chambre addReservationChambre(Chambre chambre) {
+        return chambreRepository.save(chambre);
+    }
+
+    @Override
+    public void ReserverChambre(Long chambreId, String ReservationId) {
+        Chambre chambre = chambreRepository.findById(chambreId).get();
+        Reservation reservation = reservationRepository.findById(ReservationId).get();
+        chambre.getReservations().add(reservation);
+        chambreRepository.save(chambre);
+
+    }
+
+    @Override
+    public void removeReservationChambre(Long chambreId, String ReservationId) {
+        Chambre chambre = chambreRepository.findById(chambreId).get();
+        Reservation reservation = reservationRepository.findById(ReservationId).get();
+        chambre.getReservations().remove(reservation);
+        chambreRepository.save(chambre);
+
+
+    }
+
 
 }

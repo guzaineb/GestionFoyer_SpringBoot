@@ -48,12 +48,32 @@ public class FoyerRestController {
     //http://localhost:8089/tpfoyer/foyer/modify-foyer
     @Operation(description = "modifier foyer ")
     @PutMapping("/modify-foyer")
-    public Foyer modifyFoyer(@RequestBody Foyer foyer){
-    Foyer f = foyerService.modifyFoyer(foyer);
-    return f;
+    public Foyer modifyFoyer(@RequestBody Foyer foyer) {
+        Foyer f = foyerService.modifyFoyer(foyer);
+        return f;
+    }
 
+
+    @PostMapping("/addfoyerwithbloc")
+    public Foyer addFoyerWithBloc(@RequestBody Foyer foyer) {
+        Foyer f =foyerService.addFoyerWithBloc(foyer);
+        return f;
+            }
+
+@PutMapping("/affecter-foyer-a-blocs/{foyer-id}/{bloc-id}")
+    public void addFoyerToBloc(@PathVariable("foyer-id") Long foyerId,@PathVariable("bloc-id") Long blocId){
+    foyerService.addFoyerToBloc(foyerId, blocId);
 
     }
+
+    @DeleteMapping("/desaffecterFoyerBlocs/{foyer-id}/{bloc-id}")
+    public void desaffecterFoyerBloc(Long foyerId, Long blocId) {
+    foyerService.desaffecterFoyerBloc(foyerId, blocId);
+
+        }
+
+
+
 
 }
 

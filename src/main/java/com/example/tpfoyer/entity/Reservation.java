@@ -23,8 +23,10 @@ public class Reservation {
     private Date anneeUniversitaire;
     private boolean estValide;
 
-    //@ManyToMany
-    //private Set<Etudiant>etudiants;
+    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    private Set<Etudiant>etudiants;
+    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    private Chambre chambre;
 
 
 

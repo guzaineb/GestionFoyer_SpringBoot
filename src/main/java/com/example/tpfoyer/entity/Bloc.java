@@ -1,5 +1,6 @@
 package com.example.tpfoyer.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -18,10 +19,12 @@ public class Bloc {
     private Long idBloc;
     private String nomBloc;
     private Long capaciteBloc ;
-    //@ManyToOne
-    //private Foyer foyer ;
-    //@OneToMany ( mappedBy = "bloc")
-    //private Set<Chambre>Chambres;
+    @ManyToOne
+    @ToString.Exclude
+    @JsonIgnore
+    private Foyer foyer ;
+    @OneToMany ( mappedBy = "bloc", fetch = FetchType.EAGER )
+    private Set<Chambre>Chambres;
 
 
 }

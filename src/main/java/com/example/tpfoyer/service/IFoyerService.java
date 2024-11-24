@@ -11,5 +11,8 @@ public interface IFoyerService {
     public Foyer addFoyer(Foyer f);
     public void removeFoyer(Long foyerId);
     public Foyer modifyFoyer(Foyer foyer);
+    public Foyer addFoyerWithBloc(Foyer foyer);
+    public void addFoyerToBloc(Long foyerId , Long blocId );
+    public void desaffecterFoyerBloc(Long foyerId , Long blocId);
 
 }

@@ -18,7 +18,7 @@ public class ReservationRestController {
         List<Reservation> reservations = reservationService.retrieveAllReservations();
         return reservations;
     }//http://localhost:8089/tpfoyer/Reservation/retrieve-chambre/ref1
-    @GetMapping("/retrieve-chambre/{reservation-Id}")
+    @GetMapping("/reservation/{reservation-Id}")
     public Reservation retrieveReservation(@PathVariable("reservation-Id") String reservationId){
     Reservation reservation = reservationService.retrieveReservation(reservationId);
     return reservation;

@@ -49,4 +49,20 @@ public class ChambreRestController {
         Chambre chambre = chambreService.modifyChambre(c);
         return chambre;
     }
-}
+    @PostMapping("/addResrvationChambre")
+    public Chambre addReservationChambre(@RequestBody  Chambre chambre) {
+        Chambre c =chambreService.addReservationChambre(chambre);
+        return c;
+    }
+    @PutMapping("/ReserverChambre/{chambre-id}/{Reservation-id}")
+    public void ReserverChambre(@PathVariable("chambre-id") Long chambreId,@PathVariable("Reservation-id") String ReservationId) {
+        chambreService.ReserverChambre(chambreId,ReservationId);
+    }
+    @DeleteMapping("/removeReservationChambre/{chambre-id}/{Reservation-id}")
+    public void removeReservationChambre(@PathVariable("chambre-id") Long chambreId,@PathVariable("Reservation-id") String ReservationId) {
+        chambreService.removeReservationChambre(chambreId,ReservationId);
+    }
+
+
+
+    }

@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Set;
 
 
@@ -23,10 +25,10 @@ public class Chambre {
     private Long numeroChambre;
     @Enumerated(EnumType.STRING)
     private TypeChambre typeC;
-    //@ManyToOne(cascade = CascadeType.ALL)
-    //private Bloc bloc;
-    //@OneToMany
-    //private Set<Reservation>reservations;
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Bloc bloc;
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    private Set<Reservation>reservations = new HashSet<Reservation>();
 
 
 }
