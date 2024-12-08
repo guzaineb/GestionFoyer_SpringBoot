@@ -2,6 +2,7 @@ package com.example.tpfoyer.service;
 
 import com.example.tpfoyer.entity.Chambre;
 import com.example.tpfoyer.entity.Reservation;
+import com.example.tpfoyer.entity.TypeChambre;
 import com.example.tpfoyer.repository.ChambreRepository;
 import com.example.tpfoyer.repository.ReservationRepository;
 import lombok.AllArgsConstructor;
@@ -54,5 +55,22 @@ public class ChambreServiceImpla implements IChambreService {
 
     }
 
+    @Override
+    public List<Chambre> retrieveAllChambresType() {
+        return chambreRepository.findAllByTypeC(TypeChambre.TRIPLE);
+    }
+    public List<Chambre> retrieveAllChambresType(TypeChambre type){
+        return chambreRepository.findAllByTypeC(type);
+    }
+
+@Override
+    public Chambre TrouverChambreSelonCIN(Long cin) {
+        return chambreRepository.TrouverChambreSelonCIN(cin);
+    }
+
+    @Override
+    public List<Chambre> findChambresByEtudiant(Long etudiantId) {
+        return chambreRepository.findChambresByEtudiant(etudiantId);
+    }
 
 }

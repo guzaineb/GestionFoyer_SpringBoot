@@ -3,8 +3,10 @@ package com.example.tpfoyer.control;
 import com.example.tpfoyer.entity.Etudiant;
 import com.example.tpfoyer.service.IEtudientService;
 import lombok.AllArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 @RestController
 @AllArgsConstructor
@@ -41,4 +43,18 @@ public class EtudientRestController {
         Etudiant entidient = etudientService.modifyEtudiant(etudiant);
         return entidient;
     }
-}
+    @GetMapping("/findAllByDateNaissanceAfterAndEcole/{dateNaissance}/{ecole}")
+    List<Etudiant> findAllByDateNaissanceAfterAndEcole(@PathVariable("dateNaissance")
+                                                       @DateTimeFormat(pattern="yyyy-MM-dd") Date dateNaissance, @PathVariable("ecole") String ecole){
+        List<Etudiant> etudiants=etudientService.findAllByDateNaissanceAfterAndEcole(dateNaissance,ecole);
+        return etudiants;
+    }
+    @GetMapping("/findAllByEcoleAndDateNaissanceAfter/{ecole}/{dateNaissance}")
+    public List<Etudiant> findAllByEcoleAndDateNaissanceAfter(@PathVariable("ecole") String ecole, @PathVariable("dateNaissance")
+    @DateTimeFormat(pattern="yyyy-MM-dd")Date dateNaissance) {
+
+     List<Etudiant> e =etudientService.findAllByEcoleAndDateNaissanceAfter(ecole,dateNaissance);
+     return e;
+    }
+
+    }

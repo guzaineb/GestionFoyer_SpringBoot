@@ -5,6 +5,7 @@ import com.example.tpfoyer.repository.EtudientRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 @Service
 @AllArgsConstructor
@@ -31,5 +32,15 @@ public class EtudientServiceImp implements IEtudientService {
 
     public Etudiant modifyEtudiant(Etudiant etudiant) {
         return etudientRepository.save(etudiant);
+    }
+
+    @Override
+    public List<Etudiant> findAllByDateNaissanceAfterAndEcole(Date dateNaissance, String ecole) {
+        return  etudientRepository.findAllByDateNaissanceAfterAndEcoleIsLike(dateNaissance, ecole);
+    }
+
+    @Override
+    public List<Etudiant> findAllByEcoleAndDateNaissanceAfter(String ecole, Date dateNaissance) {
+        return etudientRepository.findAllByEcoleAndDateNaissanceAfter(ecole, dateNaissance);
     }
 }

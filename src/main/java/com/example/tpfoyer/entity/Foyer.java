@@ -1,14 +1,12 @@
 package com.example.tpfoyer.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.Set;
 
@@ -26,6 +24,8 @@ public class Foyer {
     private String nomFoyer;
     @OneToOne (mappedBy = "foyer")
     private Universite universite;
+    @ToString.Exclude
+    @JsonIgnore
     @OneToMany(mappedBy = "foyer", cascade = CascadeType.ALL , fetch = FetchType.EAGER)
     private Set<Bloc> blocS;
 

@@ -9,4 +9,9 @@ import java.util.List;
 
 @Repository
 public interface ReservationRepository extends JpaRepository<Reservation,String> {
+    //Tous les réservations valides
+    //List<Reservation>findAllByEstValideIsTrue();
+
+
+
     }

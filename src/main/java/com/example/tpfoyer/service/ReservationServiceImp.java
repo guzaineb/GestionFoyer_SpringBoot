@@ -47,7 +47,7 @@ public class ReservationServiceImp implements IReservationService{
         return reservationRepository.save(reservation);
     }
 
-    @Scheduled(fixedRate = 50000)
+    @Scheduled(fixedRate = 50000000)
     public void MiseajourDate() {
         List<Reservation> Lr = retrieveAllReservations();
         Calendar c =Calendar.getInstance();

@@ -1,6 +1,7 @@
 package com.example.tpfoyer.control;
 
 import com.example.tpfoyer.entity.Chambre;
+import com.example.tpfoyer.entity.TypeChambre;
 import com.example.tpfoyer.service.IChambreService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -62,7 +63,22 @@ public class ChambreRestController {
     public void removeReservationChambre(@PathVariable("chambre-id") Long chambreId,@PathVariable("Reservation-id") String ReservationId) {
         chambreService.removeReservationChambre(chambreId,ReservationId);
     }
+@GetMapping("/retrieveAllChambresType/{t}")
+public List<Chambre> retrieveAllChambresType(@PathVariable("t") TypeChambre type){
+        return chambreService.retrieveAllChambresType(type);
+}
+@GetMapping("/retrieveAllChambresType")
+public List<Chambre> retrieveAllChambresType() {
+    return chambreService.retrieveAllChambresType();
+}
 
+@GetMapping("/chambreSelonCin/{cin}")
+    public Chambre TrouverChambreSelonCIN(@PathVariable("cin") Long cin) {
 
+        return chambreService.TrouverChambreSelonCIN(cin);}
+@GetMapping("/findChambresByEtudiantId/{id}")
+    public List<Chambre> findChambresByEtudiantId(@PathVariable("id") Long etudiantId) {
+        return chambreService.findChambresByEtudiant(etudiantId);
+    }
 
     }

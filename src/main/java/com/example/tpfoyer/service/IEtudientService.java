@@ -3,6 +3,7 @@ package com.example.tpfoyer.service;
 import com.example.tpfoyer.entity.Chambre;
 import com.example.tpfoyer.entity.Etudiant;
 
+import java.util.Date;
 import java.util.List;
 
 public interface IEtudientService {
@@ -11,6 +12,9 @@ public interface IEtudientService {
     public Etudiant addEtudiant(Etudiant e);
     public void removeEtudiant(Long EtudiantId);
     public Etudiant modifyEtudiant(Etudiant etudiant);
+    public List<Etudiant> findAllByDateNaissanceAfterAndEcole(Date dateNaissance, String ecole);
+    public List<Etudiant>findAllByEcoleAndDateNaissanceAfter(String ecole, Date dateNaissance);
+
 }
 
 
